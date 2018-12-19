@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>悦读租书系统</title>
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
+  <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.9.6/dist/data-set.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <noscript>Sorry, we need js to run correctly!</noscript>
+  <div id="root"></div>
+  <script>
+      $.ajax({
+        url: 'http://127.0.0.1:8889/users/register',
+        method: 'post',
+        data: {
+          username: 'chenmanjie',
+          password: '123456',
+          phone: '17621526605'
+        }
+      })
+  </script>
+</body>
+</html>
