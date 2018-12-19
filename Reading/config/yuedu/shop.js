@@ -5,13 +5,13 @@ export default {
   routes: [
     {
       path: '/shop/list',
-      name: 'first',
-      component: './Shop/List.js',
-    }
+      name: 'bookrack',
+      component: './Shop/shopList.js',
+    },
     // {
     //   path: '/shop/second',
     //   name: 'second',
     //   component:  './index.js',
     // }
-  ]
+  ],
 };
