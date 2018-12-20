@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './shopList.css';
-import { Table, Divider, Tag } from 'antd';
+import { Table, Divider, Tag, Modal, Button } from 'antd';
 const columns = [
   {
     title: 'ID',
@@ -81,7 +81,7 @@ const data = [
     num: 0,
   },
   {
-    key: '3',
+    key: '4',
     name: '西北旺地铁站店',
     city: '北京市',
     address: '北京西北旺地铁站',
@@ -91,7 +91,7 @@ const data = [
     num: 0,
   },
   {
-    key: '3',
+    key: '5',
     name: '西北旺地铁站店',
     city: '北京市',
     address: '北京西北旺地铁站',
@@ -101,7 +101,7 @@ const data = [
     num: 0,
   },
   {
-    key: '3',
+    key: '6',
     name: '西北旺地铁站店',
     city: '北京市',
     address: '北京西北旺地铁站',
@@ -113,7 +113,7 @@ const data = [
 ];
 class shopList extends React.PureComponent {
   render() {
-    return <Table columns={columns} dataSource={data} />;
+    return <Table columns={columns} dataSource={data} pagination={{ pageSize: 2 }} />;
     //     return (
     //       <React.Fragment>
     //         <div className={style.cont}>
