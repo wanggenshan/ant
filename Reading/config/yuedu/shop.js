@@ -4,14 +4,14 @@ export default {
   icon: 'book',
   routes: [
     {
-      path: '/shop/list',
-      name: 'bookrack',
-      component: './Shop/shopList.js',
+      path: '/shop/add',
+      name: 'add',
+      component: './Shop/Add.js',
     },
-    // {
-    //   path: '/shop/second',
-    //   name: 'second',
-    //   component:  './index.js',
-    // }
+    {
+      path: '/shop/list',
+      name: 'list',
+      component: './Shop/List.js',
+    },
   ],
 };

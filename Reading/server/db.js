@@ -1,20 +1,34 @@
 var mysql=require("mysql");
 
+let env = process.env.ENV;
 // 创建连接池
-var pool = mysql.createPool({
+var config = {};
+if (env == 'development'){
+  config = {
     host: '127.0.0.1',
     user: 'root',
     password: '',
     database: '1605a',
     port: 3306
+  };
+}else{
+  config = {
+    host: '123.206.55.50',
+    user: 'root',
+    password: '1601n',
+    database: 'yuedu',
+    port: 3306
+  };
+}
+console.log('config...', config);
+// const pool = mysql.createPool(config);
+var pool = mysql.createPool({
+  host: '123.206.55.50',
+  user: 'root',
+  password: '1601n',
+  database: 'yuedu',
+  port: 3306
 });
-// var pool = mysql.createPool({
-//   host: '123.206.55.50',
-//   user: 'root',
-//   password: '1601n',
-//   database: 'yuening',
-//   port: 3306
-// });
 
 // 连接公用方法
 var query=function(sql,options,callback){

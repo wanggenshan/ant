@@ -16,7 +16,7 @@ export default {
   effects: {
     *login({ payload }, { call, put }) {
       payload.username = payload.userName;
-      payload.password = md5(payload.password+'1605A');
+      payload.password = md5(payload.password + '1605A');
       delete payload.userName;
       const response = yield call(fakeAccountLogin, payload);
       console.log('payload...', payload, response);
@@ -65,7 +65,7 @@ export default {
       reloadAuthorized();
       yield put(
         routerRedux.push({
-          pathname: '/user/login',
+          pathname: '/shop/list',
           search: stringify({
             redirect: window.location.href,
           }),

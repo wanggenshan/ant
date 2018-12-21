@@ -1,11 +1,11 @@
 var express = require('express');
 var query = require('../db.js');
 var router = express.Router();
-var {geneToken, getIdFromToken} = require('../utils/index');
+var {geneToken, getIdFromToken} = require('../utils');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource 11111111111111111111111');
+  res.send('server yuedu response with ok!');
 });
 
 // 登陆功能

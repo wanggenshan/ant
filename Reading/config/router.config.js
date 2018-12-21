@@ -1,5 +1,6 @@
 import shop from './yuedu/shop';
 import user from './yuedu/user';
+console.log('shop...', shop, user);
 export default [
   // user
   {

@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './shopList.css';
 import { Table, Divider, Tag, Modal, Button } from 'antd';
 const columns = [
   {
@@ -111,36 +110,9 @@ const data = [
     num: 0,
   },
 ];
-class shopList extends React.PureComponent {
+class List extends React.PureComponent {
   render() {
     return <Table columns={columns} dataSource={data} pagination={{ pageSize: 2 }} />;
-    //     return (
-    //       <React.Fragment>
-    //         <div className={style.cont}>
-    //           <span>ID</span>
-    //           <span>门店名称</span>
-    //           <span>住址</span>
-    //           <span>城市</span>
-    //           <span>门店图片</span>
-    //           <span>收入</span>
-    //           <span>门店状态</span>
-    //           <span>门店物品数量</span>
-    //           <span>操作</span>
-    //         </div>
-
-    //         <div className={style.make}>
-    //           <div className={style.marks}>
-    //             <h3>编辑</h3>
-    //             <span>X</span>
-    //             <div>门店名称</div>
-    //             <div>住址</div>
-    //             <div>城市</div>
-    //             <div>门店状态</div>
-    //             <div>门店信息</div>
-    //           </div>
-    //         </div>
-    //       </React.Fragment>
-    //     );
   }
 }
-export default shopList;
+export default List;

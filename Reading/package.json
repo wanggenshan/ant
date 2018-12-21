@@ -28,7 +28,9 @@
     "docker-hub:build": "docker build  -f Dockerfile.hub -t  ant-design-pro ./",
     "docker:tag": "docker tag ant-design-pro chenshuai2144/ant-design-pro",
     "docker:push": "npm run docker-hub:build && npm run docker:tag && docker push chenshuai2144/ant-design-pro",
-    "server": "node-dev server/app.js"
+    "server": "node-dev server/app.js",
+    "server:dev": "cross-env ENV=development node-dev server/app.js",
+    "server:pro": "cross-env ENV=production pm2 start server/app.js -n yuedu_server"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",

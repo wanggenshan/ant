@@ -38,5 +38,7 @@ export default {
   'menu.shop': '商店',
   'menu.shop.first': '第一个商店',
   'menu.shop.second': '第二个商店',
-  'menu.shop.third': '第三个商店'
+  'menu.shop.third': '第三个商店',
+  'menu.shop.add': '新增店铺',
+  'menu.shop.list': '店铺列表'
 };
