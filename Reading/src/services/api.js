@@ -125,7 +125,7 @@ export async function queryNotices() {
 export async function getFakeCaptcha(mobile) {
   return request(`/api/captcha?mobile=${mobile}`);
 }
-export async function test(params) {
+export async function shoplist(params) {
   //接口地址和参数应该可以一目了然了吧！
   return request(`http://123.206.55.50:15000/shop/list`);
 }

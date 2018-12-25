@@ -5,7 +5,7 @@ export default {
 
   state: {
     list: [],
-    currentUser:  {
+    currentUser: {
       name: 'Serati Ma',
       avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
       userid: '00000001',
@@ -81,9 +81,18 @@ export default {
         list: action.payload,
       };
     },
+    //修改头像,
+    changeAvatar(state, action) {
+      let currentUser = { ...state.currentUser };
+      currentUser.avatar = action.payload;
+      return {
+        ...state,
+        currentUser,
+      };
+    },
     saveCurrentUser(state, action) {
       console.log('payload...', action.payload);
-      let currentUser = {...state.currentUser};
+      let currentUser = { ...state.currentUser };
       // 覆盖用户数据
       currentUser.userid = action.payload.data.id;
       currentUser.avatar = action.payload.data.avatar;
@@ -93,7 +102,7 @@ export default {
       currentUser.name = action.payload.data.username;
       return {
         ...state,
-        currentUser
+        currentUser,
       };
     },
     changeNotifyCount(state, action) {

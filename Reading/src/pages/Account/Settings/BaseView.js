@@ -11,7 +11,7 @@ const FormItem = Form.Item;
 const { Option } = Select;
 
 // 头像组件 方便以后独立，增加裁剪之类的功能
-const AvatarView = ({ avatar }) => (
+const AvatarView = ({ avatar, changeAvatar }) => (
   <Fragment>
     <div className={styles.avatar_title}>
       <FormattedMessage id="app.settings.basic.avatar" defaultMessage="Avatar" />
@@ -19,7 +19,7 @@ const AvatarView = ({ avatar }) => (
     <div className={styles.avatar}>
       <img src={avatar} alt="avatar" />
     </div>
-    <Upload fileList={[]}>
+    <Upload fileList={[]} onChange={e => uploadAvatar(e, changeAvatar)}>
       <div className={styles.button_view}>
         <Button icon="upload">
           <FormattedMessage id="app.settings.basic.change-avatar" defaultMessage="Change avatar" />
@@ -28,6 +28,22 @@ const AvatarView = ({ avatar }) => (
     </Upload>
   </Fragment>
 );
+
+// 头像上传接口
+const uploadAvatar = (e, callback) => {
+  console.log('e....', e);
+  let form = new FormData();
+  form.append(e.file.name, e.file.originFileObj);
+  fetch('http://123.206.55.50:11000/upload', {
+    method: 'POST',
+    body: form,
+  })
+    .then(res => res.json())
+    .then(body => {
+      console.log('body...', body);
+      callback(body.data[0].path);
+    });
+};
 
 const validatorGeographic = (rule, value, callback) => {
   const { province, city } = value;
@@ -51,13 +67,24 @@ const validatorPhone = (rule, value, callback) => {
   callback();
 };
 
-@connect(({ user }) => ({
-  currentUser: user.currentUser,
-}))
+@connect(
+  ({ user }) => ({
+    currentUser: user.currentUser,
+  }),
+  dispatch => ({
+    changeAvatar: payload => {
+      dispatch({
+        type: 'user/changeAvatar',
+        payload,
+      });
+    },
+  })
+)
 @Form.create()
 class BaseView extends Component {
   componentDidMount() {
     this.setBaseInfo();
+    console.log('this.props...', this.props);
   }
 
   setBaseInfo = () => {
@@ -182,7 +209,7 @@ class BaseView extends Component {
           </Form>
         </div>
         <div className={styles.right}>
-          <AvatarView avatar={this.getAvatarURL()} />
+          <AvatarView avatar={this.getAvatarURL()} changeAvatar={this.props.changeAvatar} />
         </div>
       </div>
     );
