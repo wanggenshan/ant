@@ -33,11 +33,12 @@
     "server:pro": "cross-env ENV=production pm2 start server/app.js -n yuedu_server"
   },
   "dependencies": {
+    "@alicloud/sms-sdk": "^1.1.6",
+    "@antv/data-set": "^0.10.0",
     "@babel/runtime": "^7.1.5",
     "antd": "^3.10.9",
     "bizcharts": "^3.4.0",
     "bizcharts-plugin-slider": "^2.1.1-beta.1",
-    "@antv/data-set": "^0.10.0",
     "classnames": "^2.2.6",
     "dva": "^2.4.0",
     "enquire-js": "^0.2.1",

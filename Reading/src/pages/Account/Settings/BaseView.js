@@ -31,7 +31,6 @@ const AvatarView = ({ avatar, changeAvatar }) => (
 
 // 头像上传接口
 const uploadAvatar = (e, callback) => {
-  console.log('e....', e);
   let form = new FormData();
   form.append(e.file.name, e.file.originFileObj);
   fetch('http://123.206.55.50:11000/upload', {
@@ -40,7 +39,6 @@ const uploadAvatar = (e, callback) => {
   })
     .then(res => res.json())
     .then(body => {
-      console.log('body...', body);
       callback(body.data[0].path);
     });
 };
@@ -108,7 +106,6 @@ class BaseView extends Component {
   getViewDom = ref => {
     this.view = ref;
   };
-
   render() {
     const {
       form: { getFieldDecorator },
