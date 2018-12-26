@@ -1,15 +1,25 @@
 import React from 'react';
 import { connect } from 'dva';
-@connect(({ shoplist, loading }) => ({
-  shoplist,
-  loading: loading.models.shoplist,
-}))
+// @connect(
+//   state => {
+//     // console.log('state...', state);
+//     return {};
+//   },
+//   dispatch => {
+//     return {
+//       getShoplist: () => {
+//         dispatch({
+//           type: 'shoplist/getShoplist',
+//         });
+//       },
+//     };
+//   }
+// )
 class Add extends React.PureComponent {
-  componentDidMount() {
-    this.props.dispatch({ type: 'shoplist/fetch' });
-  }
+  // componentDidMount() {
+  //   this.props.getShoplist();
+  // }
   render() {
-    console.log('........', this.props);
     return <h1>12</h1>;
   }
 }

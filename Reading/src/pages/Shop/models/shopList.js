@@ -4,28 +4,23 @@ export default {
   namespace: 'shoplist',
 
   state: {
-    data: {
-      list: [],
-      pagination: {},
-    },
+    shopList: [],
   },
 
   effects: {
-    *fetch({ payload }, { call, put }) {
-      const response = yield call(shoplist, payload);
+    *getShoplist(payload, { call, put }) {
+      const response = yield call(shoplist);
+      //   console.log('res...', response);
       yield put({
-        type: 'save',
-        payload: response,
+        type: 'shoplist',
+        payload: response.data.list,
       });
     },
   },
 
   reducers: {
-    save(state, action) {
-      return {
-        ...state,
-        data: action.payload,
-      };
+    shoplist(state, action) {
+      return { ...state, shopList: action.payload };
     },
   },
 };
