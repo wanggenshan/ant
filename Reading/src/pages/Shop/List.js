@@ -123,7 +123,7 @@ const columns = [
 @connect(
   state => {
     let { shopList } = state.shoplist;
-    console.log('Liststate...', state.shoplist);
+    // console.log('Liststate...', state.shoplist);
     return {
       shopList,
     };
@@ -205,7 +205,7 @@ class List extends React.PureComponent {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        // console.log('门店名称........ ', values);
       }
     });
   };
@@ -249,7 +249,6 @@ class List extends React.PureComponent {
     });
   };
   handleOk = e => {
-    console.log(e);
     this.setState({
       visible: false,
     });
@@ -262,7 +261,6 @@ class List extends React.PureComponent {
   };
 
   render() {
-    // const {}
     //表单
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -319,18 +317,15 @@ class List extends React.PureComponent {
               {getFieldDecorator('text', {
                 rules: [
                   {
-                    type: 'text',
+                    // type: 'text',
                     message: 'The input is not valid !',
                   },
-                  {
-                    required: true,
-                    message: '请编辑门店名称!',
-                  },
+                  { required: true, message: '请编辑门店名称!' },
                 ],
               })(<Input />)}
             </Form.Item>
             <Form.Item {...formItemLayout} label="住址">
-              {getFieldDecorator('password', {
+              {getFieldDecorator('residence', {
                 rules: [
                   {
                     required: true,
@@ -340,21 +335,9 @@ class List extends React.PureComponent {
                     validator: this.validateToNextPassword,
                   },
                 ],
-              })(<Input type="text" />)}
+              })(<Input />)}
             </Form.Item>
-            <Form.Item {...formItemLayout} label="城市">
-              {getFieldDecorator('confirm', {
-                rules: [
-                  {
-                    required: true,
-                    message: '请输入城市!',
-                  },
-                  {
-                    validator: this.compareToFirstPassword,
-                  },
-                ],
-              })(<Input type="password" onBlur={this.handleConfirmBlur} />)}
-            </Form.Item>
+
             <Form.Item
               {...formItemLayout}
               label={
@@ -369,19 +352,6 @@ class List extends React.PureComponent {
               {getFieldDecorator('nickname', {
                 rules: [{ required: true, message: '请输入门店状态!', whitespace: true }],
               })(<Input />)}
-            </Form.Item>
-            <Form.Item {...formItemLayout} label="门店信息">
-              {getFieldDecorator('confirm', {
-                rules: [
-                  {
-                    required: true,
-                    message: '请输入状态!',
-                  },
-                  {
-                    validator: this.compareToFirstPassword,
-                  },
-                ],
-              })(<Input type="textarea" />)}
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">

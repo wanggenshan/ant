@@ -125,7 +125,19 @@ export async function queryNotices() {
 export async function getFakeCaptcha(mobile) {
   return request(`/api/captcha?mobile=${mobile}`);
 }
+//显示列表
 export async function shoplist(params) {
-  //接口地址和参数应该可以一目了然了吧！
   return request(`http://123.206.55.50:15000/shop/list`);
+}
+//增加数据
+export async function addInfo(obj) {
+  //  let aa = JSON.stringify(obj);
+  console.log(obj);
+  return request('http://123.206.55.50:15000/shop/insert', {
+    method: 'POST',
+    body: obj,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 }
